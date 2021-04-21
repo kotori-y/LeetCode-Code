@@ -3,7 +3,7 @@
  * @Author: Kotori Y
  * @Date: 2021-04-21 11:44:16
  * @LastEditors: Kotori Y
- * @LastEditTime: 2021-04-21 15:22:30
+ * @LastEditTime: 2021-04-21 15:34:35
  * @FilePath: \LeetCode-Code\codes\BinarySearch\Median-of-Two-Sorted-Arrays\README.md
  * @AuthorMail: kotori@cbdd.me
 -->
@@ -12,7 +12,7 @@
 
 给定两个大小分别为<code>m</code>和<code>n</code>的**正序**（从小到大）数组<code>nums1</code>和<code>nums2</code>。请你找出并返回这两个正序数组的**中位数**。
 
-**要求**：时间复杂度为（或优于）<code>*log(O(m + n))*</code>
+**要求**：时间复杂度为（或优于）<code>*O(log(m+n))*</code>
 
 ```
 输入：nums1 = [1,3], nums2 = [2]
