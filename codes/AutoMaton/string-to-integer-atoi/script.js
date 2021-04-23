@@ -3,7 +3,7 @@
  * @Author: Kotori Y
  * @Date: 2021-04-23 09:35:45
  * @LastEditors: Kotori Y
- * @LastEditTime: 2021-04-23 09:36:04
+ * @LastEditTime: 2021-04-23 09:45:19
  * @FilePath: \LeetCode-Code\codes\AutoMaton\string-to-integer-atoi\script.js
  * @AuthorMail: kotori@cbdd.me
  */
@@ -45,7 +45,7 @@ class AutoMaton {
                 this.ans = this.ans * 10 + parseInt(c);
                 if ((this.ans | 0) !== this.ans) {
                     this.state = "end"
-                    this.ans = this.sign === 1 ? (2 ** 31 - 1) : 2 ** 31
+                    this.ans = this.sign === 1 ? Math.abs((-1 << 31) + 1) : Math.abs(-1 << 31)
                 };
                 break;
             case "signed":
