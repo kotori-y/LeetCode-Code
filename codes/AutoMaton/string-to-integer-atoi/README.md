@@ -3,7 +3,7 @@
  * @Author: Kotori Y
  * @Date: 2021-04-22 21:51:01
  * @LastEditors: Kotori Y
- * @LastEditTime: 2021-04-23 08:41:40
+ * @LastEditTime: 2021-04-23 09:33:02
  * @FilePath: \LeetCode-Code\codes\AutoMaton\string-to-integer-atoi\README.md
  * @AuthorMail: kotori@cbdd.me
 -->
@@ -90,3 +90,16 @@
 解析得到整数 -91283472332 。
 由于 -91283472332 小于范围[−2<sup>31</sup>,  2<sup>31</sup>−1]的下界，最终结果被截断为 -231 = -2147483648 。
 ```
+
+### 题解
+
+本题当然可以用正则解决，但这样做的话，这道题就失去意义了。我从[官方题解](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/)那里学到一个新方法：自动机。即：我们的程序在每个时刻有一个状态<code>s</code>，每次从序列中输入一个字符<code>c</code>，并根据字符<code>c</code>转移到下一个状态<code>s'</code>。这样，我们只需要建立一个覆盖所有情况的从<code>s</code>与<code>c</code>映射到<code>s'</code>的表格即可解决题目中的问题。
+
+|               |  " "  |  +/-   |  number   | end  |
+| ------------- | :---: | :----: | :-------: | :--: |
+| **start**     | start | signed | in_number | end  |
+| **signed**    |  end  |  end   | in_number | end  |
+| **in_number** |  end  |  end   | in_number | end  |
+| **end**       |  end  |  end   |    end    | end  |
+
+之后要做的就是实现这个表里的内容并遍历字符串中的每个字符。时间复杂度为<i>O(n)</i>，空间复杂度为<i>O(1)</i>。
